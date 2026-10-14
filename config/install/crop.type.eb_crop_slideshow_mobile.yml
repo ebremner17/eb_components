@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies: {  }
+id: eb_crop_slideshow_mobile
+label: 'EB Slideshow mobile'
+description: 'Crop for the Slideshow component on narrow screens.'
+aspect_ratio: '4:3'
+soft_limit_width: 800
+soft_limit_height: 600
+hard_limit_width: null
+hard_limit_height: null

@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.eb_raw_html
+  module:
+    - ckeditor5
+format: eb_raw_html
+editor: ckeditor5
+settings:
+  toolbar:
+    items:
+      - sourceEditing
+      - '|'
+      - bold
+      - italic
+      - underline
+      - link
+      - '|'
+      - bulletedList
+      - numberedList
+  plugins:
+    ckeditor5_sourceEditing:
+      allowed_tags: []
+image_upload:
+  status: false

@@ -1,0 +1,15 @@
+<div
+  class="eb-hero-slideshow"
+  data-slide-speed="{{ slide_speed|default(4000) }}"
+  data-transition-speed="{{ transition_speed|default(400) }}"
+>
+  {% for image in images|default([]) %}
+    <div class="eb-hero-slideshow__slide{{ loop.first ? ' is-active' : '' }}">
+      {% include 'canvas:image' with image|merge({
+        class: 'eb-hero-slideshow__image',
+        loading: loop.first ? 'eager' : 'lazy',
+        sizes: '100vw',
+      }|filter((value) => value is not null)) only %}
+    </div>
+  {% endfor %}
+</div>

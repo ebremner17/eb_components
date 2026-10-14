@@ -1,0 +1,46 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Slideshow
+description: 'A full-width image slideshow with play/pause and slide controls. Images are cropped separately for mobile and desktop.'
+props:
+  type: object
+  required:
+    - images
+  properties:
+    images:
+      type: array
+      title: Images
+      description: 'Up to 8 images, shown in the order given. Use the "Slideshow image" media type to crop each image for mobile and desktop.'
+      minItems: 1
+      maxItems: 8
+      items:
+        $ref: json-schema-definitions://canvas.module/image
+        type: object
+      examples:
+        -
+          - src: 'https://placehold.co/1920x960?text=Slide+1'
+            alt: ''
+            width: 1920
+            height: 960
+          - src: 'https://placehold.co/1920x960?text=Slide+2'
+            alt: ''
+            width: 1920
+            height: 960
+    slide_speed:
+      type: integer
+      title: 'Slide speed (ms)'
+      description: 'How long each image is displayed for, in milliseconds.'
+      default: 5000
+      minimum: 500
+      examples:
+        - 5000
+    transition_speed:
+      type: integer
+      title: 'Transition speed (ms)'
+      description: 'How long the crossfade transition takes, in milliseconds.'
+      default: 400
+      minimum: 0
+      examples:
+        - 400
+libraryOverrides:
+  dependencies:
+    - core/once

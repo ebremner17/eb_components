@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.eb_crop_slideshow_desktop
+  module:
+    - crop
+name: eb_is_slideshow_desktop
+label: 'EB Slideshow desktop'
+effects:
+  1560aa6f-f67a-4d4d-979f-727bbf7d53f5:
+    uuid: 1560aa6f-f67a-4d4d-979f-727bbf7d53f5
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: eb_crop_slideshow_desktop
+      automatic_crop_provider: null
+  ec32f43f-0ad3-49fe-a2bf-6ea57bc80795:
+    uuid: ec32f43f-0ad3-49fe-a2bf-6ea57bc80795
+    id: image_scale
+    weight: 2
+    data:
+      width: 1920
+      height: null
+      upscale: true

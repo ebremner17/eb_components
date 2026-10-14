@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.eb_crop_slideshow_mobile
+  module:
+    - crop
+name: eb_is_slideshow_mobile
+label: 'EB Slideshow mobile'
+effects:
+  cd9659ba-63db-400f-88a4-c96c0f5d3cca:
+    uuid: cd9659ba-63db-400f-88a4-c96c0f5d3cca
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: eb_crop_slideshow_mobile
+      automatic_crop_provider: null
+  0b00ce7e-43ec-41f7-8c46-74f150f011a2:
+    uuid: 0b00ce7e-43ec-41f7-8c46-74f150f011a2
+    id: image_scale
+    weight: 2
+    data:
+      width: 800
+      height: null
+      upscale: true

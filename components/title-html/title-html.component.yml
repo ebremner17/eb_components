@@ -1,0 +1,38 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: 'Title + HTML'
+description: 'An optional heading followed by free-form HTML content.'
+props:
+  type: object
+  properties:
+    title:
+      type: string
+      title: Title
+      description: 'Shown as a heading above the HTML content. Leave blank to hide it.'
+      examples:
+        - 'Section title'
+    heading_level:
+      type: string
+      title: 'Heading level'
+      description: 'The HTML heading tag used for the title.'
+      enum:
+        - h2
+        - h3
+        - h4
+        - h5
+      meta:enum:
+        h2: 'H2'
+        h3: 'H3'
+        h4: 'H4'
+        h5: 'H5'
+      default: h2
+      examples:
+        - h2
+    html:
+      type: string
+      title: 'HTML content'
+      description: 'Free-form HTML.'
+      contentMediaType: text/html
+      x-formatting-context: block
+      x-eb-raw-html: true
+      examples:
+        - '<p>HTML content.</p>'

@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies: {  }
+id: eb_crop_slideshow_desktop
+label: 'EB Slideshow desktop'
+description: 'Crop for the Slideshow component on wide screens.'
+aspect_ratio: '2:1'
+soft_limit_width: 1920
+soft_limit_height: 960
+hard_limit_width: null
+hard_limit_height: null

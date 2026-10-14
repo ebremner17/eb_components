@@ -1,0 +1,108 @@
+<?php
+
+/**
+ * @file
+ * Hook implementations for the EB Components module.
+ */
+
+use Drupal\canvas\Entity\Component;
+use Drupal\canvas\PropShape\CandidateStorablePropShape;
+use Drupal\Core\Hook\Attribute\Hook;
+
+/**
+ * Implements hook_canvas_storable_prop_shape_alter().
+ *
+ * Canvas's default `contentMediaType: text/html` prop shape locks the field
+ * to its own restrictive "Drupal Canvas — Block/Inline HTML" formats (a
+ * handful of inline tags only, no raw HTML). Props explicitly opted in via
+ * `x-eb-raw-html: true` get the site's own unrestricted "EB Raw HTML" format
+ * instead, whose CKEditor 5 profile includes Source Editing.
+ */
+#[Hook('canvas_storable_prop_shape_alter')]
+function eb_components_canvas_storable_prop_shape_alter(CandidateStorablePropShape $storable_prop_shape): void {
+  if (!empty($storable_prop_shape->shape->schema['x-eb-raw-html'])) {
+    $storable_prop_shape->fieldInstanceSettings = ['allowed_formats' => ['eb_raw_html']];
+  }
+}
+
+/**
+ * Implements hook_component_presave().
+ *
+ * Canvas auto-discovers and enables a "component" for every SDC on the site
+ * (other themes/modules) and for existing block plugins, not just this
+ * site's own. The Canvas page builder should only ever offer eb_components'
+ * own components, so everything else is force-disabled here, on every save
+ * (including the ones Canvas performs itself during cache rebuilds/module
+ * installs), rather than relying on someone disabling them by hand each time
+ * a new one is discovered.
+ */
+#[Hook('component_presave')]
+function eb_components_component_presave(Component $component): void {
+  if (!str_starts_with($component->id(), 'sdc.eb_components.') && $component->id() !== 'marker.page_content') {
+    $component->setStatus(FALSE);
+  }
+}
+
+/**
+ * Implements hook_component_insert().
+ *
+ * The Canvas Library panel's component list (`/canvas/api/v0/config/component`)
+ * ignores the `status` property entirely for this entity type, so disabling a
+ * component (see eb_components_component_presave()) does not hide it from the
+ * picker — only deleting it does. Canvas re-discovers and recreates every
+ * available block plugin and every theme's/module's SDC on each cache
+ * rebuild/module install, so anything other than eb_components' own
+ * components is deleted again as soon as it's (re)created, keeping the
+ * picker limited to this site's own components.
+ *
+ * eb_components' own components are additionally kept out of any "Folder"
+ * config entity (what Canvas auto-files every new component into, and what
+ * renders as a heading above a group in the Library panel), so they render
+ * as a flat, unheaded list instead of grouped under "Other".
+ */
+#[Hook('component_insert')]
+function eb_components_component_insert(Component $component): void {
+  if (!str_starts_with($component->id(), 'sdc.eb_components.') && $component->id() !== 'marker.page_content') {
+    $component->delete();
+  }
+
+  // Creating the component (whether or not it was immediately deleted above)
+  // auto-files it into a "Folder" config entity — the thing that renders as
+  // a heading above a group in the Library panel. Pull it back out, and
+  // delete the Folder entirely if that empties it, so no empty category
+  // headings are left behind either. This runs regardless of whether the
+  // component itself was kept or just deleted above: creating it is what
+  // triggers the Folder side effect in the first place, so the Folder needs
+  // cleaning up either way.
+  foreach (\Drupal::entityTypeManager()->getStorage('folder')->loadMultiple() as $folder) {
+    $items = $folder->get('items') ?? [];
+    if (!in_array($component->id(), $items, TRUE)) {
+      continue;
+    }
+    $remaining = array_values(array_diff($items, [$component->id()]));
+    if ($remaining) {
+      $folder->set('items', $remaining)->save();
+    }
+    else {
+      $folder->delete();
+    }
+  }
+}
+
+/**
+ * Implements hook_rebuild().
+ *
+ * Canvas's own hook_rebuild() implementation (re)creates a "Folder" config
+ * entity per component category every time it runs, even for components
+ * that eb_components_component_insert() deletes again immediately — so
+ * empty Folders are still left behind after a rebuild. Since nothing on this
+ * site should ever be categorized, sweep all Folders away once rebuild has
+ * finished; eb_components_component_insert() keeps new ones from gaining any
+ * real items in the meantime.
+ */
+#[Hook('rebuild')]
+function eb_components_rebuild(): void {
+  foreach (\Drupal::entityTypeManager()->getStorage('folder')->loadMultiple() as $folder) {
+    $folder->delete();
+  }
+}

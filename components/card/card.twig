@@ -1,0 +1,16 @@
+<div class="eb-card">
+  {% if image %}
+    {% include 'canvas:image' with image|merge({
+      class: 'eb-card__image',
+    }|filter((value) => value is not null)) only %}
+  {% endif %}
+  <div class="eb-card__content">
+    <h3 class="eb-card__heading">{{ heading }}</h3>
+    {% if body %}
+      <div class="eb-card__body">{{ body }}</div>
+    {% endif %}
+    {% if link_url %}
+      <a class="eb-card__link" href="{{ link_url }}">{{ link_text|default('Learn more') }}</a>
+    {% endif %}
+  </div>
+</div>

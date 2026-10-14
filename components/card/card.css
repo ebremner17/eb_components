@@ -1,0 +1,33 @@
+.eb-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.eb-card__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.eb-card__content {
+  padding: 1rem 1.5rem;
+}
+
+.eb-card__heading {
+  margin: 0 0 0.5rem;
+}
+
+.eb-card__body {
+  margin: 0 0 1rem;
+}
+
+.eb-card__body :last-child {
+  margin-bottom: 0;
+}
+
+.eb-card__link {
+  font-weight: 500;
+}

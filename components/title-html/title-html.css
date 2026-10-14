@@ -1,0 +1,11 @@
+.eb-title-html__title {
+  margin: 0 0 1rem;
+}
+
+.eb-title-html__content :first-child {
+  margin-top: 0;
+}
+
+.eb-title-html__content :last-child {
+  margin-bottom: 0;
+}

@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.eb_mt_slideshow_image.field_media_image
+    - image.style.large
+    - media.type.eb_mt_slideshow_image
+  module:
+    - image
+id: media.eb_mt_slideshow_image.default
+targetEntityType: media
+bundle: eb_mt_slideshow_image
+mode: default
+content:
+  field_media_image:
+    type: image
+    label: hidden
+    settings:
+      image_style: large
+      image_link: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  name: true
+  uid: true

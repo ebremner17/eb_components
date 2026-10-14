@@ -1,0 +1,11 @@
+name: 'EB Components'
+type: module
+description: 'Custom SDC components for use in Drupal Canvas pages.'
+core_version_requirement: ^10 || ^11
+package: Custom
+dependencies:
+  - drupal:canvas
+  - drupal:media
+  - drupal:image
+  - drupal:crop
+  - drupal:image_widget_crop
