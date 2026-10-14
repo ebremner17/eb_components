@@ -1,0 +1,7 @@
+{
+    "name": "ebremner17/eb_components",
+    "description": "Components for ericbremner.",
+    "type": "drupal-custom-module",
+    "homepage": "https://github.com/ebremner17/cuba_ct_conference_section",
+    "keywords": ["Drupal"]
+}
