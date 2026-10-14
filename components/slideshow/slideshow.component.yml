@@ -41,6 +41,19 @@ props:
       minimum: 0
       examples:
         - 400
+    display_type:
+      type: string
+      title: 'Display type'
+      description: 'Full spans edge to edge. Contained keeps it within the normal content width, like most other components.'
+      enum:
+        - full
+        - contained
+      meta:enum:
+        full: Full
+        contained: Contained
+      default: full
+      examples:
+        - full
 libraryOverrides:
   dependencies:
     - core/once

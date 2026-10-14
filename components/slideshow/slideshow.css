@@ -21,6 +21,16 @@
   }
 }
 
+.eb-slideshow--contained {
+  left: auto;
+  width: auto;
+  margin-left: 0;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  aspect-ratio: 2 / 1;
+}
+
 .eb-slideshow__slide {
   position: absolute;
   inset: 0;

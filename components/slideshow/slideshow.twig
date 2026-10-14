@@ -1,6 +1,6 @@
 {% set images = images|default([]) %}
 <div
-  class="eb-slideshow"
+  class="eb-slideshow{{ display_type == 'contained' ? ' eb-slideshow--contained' : '' }}"
   data-slide-speed="{{ slide_speed|default(5000) }}"
   data-transition-speed="{{ transition_speed|default(400) }}"
 >
