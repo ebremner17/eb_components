@@ -1,0 +1,27 @@
+{% set images = images|default([]) %}
+<div class="eb-gallery">
+  <div class="eb-gallery__grid">
+    {% for image in images %}
+      <button
+        type="button"
+        class="eb-gallery__thumb"
+        aria-label="{{ 'View image @number of @total'|t({'@number': loop.index, '@total': images|length}) }}"
+      >
+        {% include 'canvas:image' with image|merge({
+          class: 'eb-gallery__thumb-image',
+          loading: loop.index <= 8 ? 'eager' : 'lazy',
+        }|filter((value) => value is not null)) only %}
+      </button>
+    {% endfor %}
+  </div>
+
+  <div class="eb-gallery__lightbox" hidden>
+    <button type="button" class="eb-gallery__close" aria-label="{{ 'Close'|t }}">&times;</button>
+    <button type="button" class="eb-gallery__prev" aria-label="{{ 'Previous image'|t }}">&#10094;</button>
+    <div class="eb-gallery__stage">
+      <img class="eb-gallery__stage-image" src="" alt="">
+      <div class="eb-gallery__counter"></div>
+    </div>
+    <button type="button" class="eb-gallery__next" aria-label="{{ 'Next image'|t }}">&#10095;</button>
+  </div>
+</div>

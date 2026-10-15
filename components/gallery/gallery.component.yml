@@ -1,0 +1,30 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Gallery
+description: 'A thumbnail grid of up to 50 images. Click a thumbnail to view it larger, with navigation to move through the rest.'
+props:
+  type: object
+  required:
+    - images
+  properties:
+    images:
+      type: array
+      title: Images
+      description: 'Up to 50 images, shown in the order given. Portrait and landscape are both fine.'
+      minItems: 1
+      maxItems: 50
+      items:
+        $ref: json-schema-definitions://canvas.module/image
+        type: object
+      examples:
+        -
+          - src: 'https://placehold.co/800x600?text=Photo+1'
+            alt: ''
+            width: 800
+            height: 600
+          - src: 'https://placehold.co/600x800?text=Photo+2'
+            alt: ''
+            width: 600
+            height: 800
+libraryOverrides:
+  dependencies:
+    - core/once

@@ -1,0 +1,120 @@
+.eb-gallery {
+  margin-bottom: 2rem;
+}
+
+.eb-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.75rem;
+}
+
+.eb-gallery__thumb {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #eee;
+}
+
+.eb-gallery__thumb-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+
+.eb-gallery__thumb:hover .eb-gallery__thumb-image,
+.eb-gallery__thumb:focus-visible .eb-gallery__thumb-image {
+  transform: scale(1.05);
+}
+
+.eb-gallery__lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.eb-gallery__lightbox[hidden] {
+  display: none;
+}
+
+.eb-gallery__stage {
+  max-width: 90vw;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.eb-gallery__stage-image {
+  display: block;
+  max-width: 90vw;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.eb-gallery__counter {
+  color: #fff;
+  font-size: 0.875rem;
+}
+
+.eb-gallery__close,
+.eb-gallery__prev,
+.eb-gallery__next {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.eb-gallery__close:hover,
+.eb-gallery__prev:hover,
+.eb-gallery__next:hover,
+.eb-gallery__close:focus-visible,
+.eb-gallery__prev:focus-visible,
+.eb-gallery__next:focus-visible {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.eb-gallery__close {
+  top: 1rem;
+  right: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.5rem;
+}
+
+.eb-gallery__prev,
+.eb-gallery__next {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.25rem;
+}
+
+.eb-gallery__prev {
+  left: 1rem;
+}
+
+.eb-gallery__next {
+  right: 1rem;
+}
