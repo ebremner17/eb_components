@@ -3,3 +3,7 @@ services:
     class: Drupal\eb_components\Twig\EbImageStyleExtension
     tags:
       - { name: twig.extension }
+  eb_components.twig.video_extension:
+    class: Drupal\eb_components\Twig\EbVideoExtension
+    tags:
+      - { name: twig.extension }

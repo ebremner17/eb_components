@@ -1,0 +1,26 @@
+.eb-video {
+  margin-bottom: 2rem;
+}
+
+.eb-video__embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+.eb-video__embed iframe,
+.eb-video__embed video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Uploaded videos (unlike YouTube embeds) can be portrait, e.g. phone
+ * recordings — contain them instead of stretching to fill the 16:9 box. */
+.eb-video__embed video {
+  object-fit: contain;
+}

@@ -1,0 +1,19 @@
+<div class="eb-video">
+  {% if video_source == 'upload' and video.src %}
+    <div class="eb-video__embed">
+      <video controls preload="metadata">
+        <source src="{{ video.src }}">
+      </video>
+    </div>
+  {% elseif youtube_url %}
+    <div class="eb-video__embed">
+      <iframe
+        src="{{ eb_youtube_embed_url(youtube_url) }}"
+        title="{{ 'YouTube video'|t }}"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+    </div>
+  {% endif %}
+</div>

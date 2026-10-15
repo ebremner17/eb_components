@@ -1,0 +1,32 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Video
+description: 'A video, either a YouTube link or an uploaded video file.'
+props:
+  type: object
+  properties:
+    video_source:
+      type: string
+      title: 'Video source'
+      description: 'Choose whether this is a YouTube video or an uploaded video file.'
+      enum:
+        - youtube
+        - upload
+      meta:enum:
+        youtube: YouTube
+        upload: 'Uploaded video'
+      default: youtube
+      examples:
+        - youtube
+    youtube_url:
+      type: string
+      title: 'YouTube URL'
+      description: 'Used when video source is YouTube. Paste the full video URL.'
+      examples:
+        - 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+    video:
+      type: object
+      title: 'Video file'
+      description: 'Used when video source is Uploaded video. Accepts common phone/camera formats (mp4, mov, m4v).'
+      $ref: json-schema-definitions://canvas.module/video
+      examples:
+        - src: 'https://example.com/video.mp4'
