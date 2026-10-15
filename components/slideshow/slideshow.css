@@ -3,6 +3,7 @@
   left: 50%;
   width: 100vw;
   margin-left: -50vw;
+  margin-bottom: 2rem;
   height: 50vh;
   min-height: 280px;
   overflow: hidden;

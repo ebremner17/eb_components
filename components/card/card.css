@@ -4,6 +4,7 @@
   border: 1px solid #ddd;
   border-radius: 4px;
   overflow: hidden;
+  margin-bottom: 2rem;
 }
 
 .eb-card__image {
