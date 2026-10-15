@@ -1,0 +1,10 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: 'Content Area'
+description: 'A plain content wrapper with a single slot. Used in content templates to expose a per-entity Canvas field.'
+props:
+  type: object
+  properties: {  }
+slots:
+  content:
+    title: Content
+    description: 'The per-entity Canvas content.'

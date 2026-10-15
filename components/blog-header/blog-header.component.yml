@@ -1,0 +1,31 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: 'Blog Header'
+description: 'The header for a blog post: a full-width hero image with the date and title below it, or just the date and title if no hero image is set.'
+props:
+  type: object
+  required:
+    - title
+    - date
+  properties:
+    hero_image:
+      type: object
+      title: 'Hero image'
+      description: 'Optional. When set, shown full-width above the date and title.'
+      $ref: json-schema-definitions://canvas.module/image
+      examples:
+        - src: 'https://placehold.co/1600x700?text=Hero'
+          alt: ''
+          width: 1600
+          height: 700
+    title:
+      type: string
+      title: Title
+      examples:
+        - 'Blog post title'
+    date:
+      type: string
+      title: Date
+      format: date
+      description: 'An ISO 8601 date (YYYY-MM-DD).'
+      examples:
+        - '2026-10-15'

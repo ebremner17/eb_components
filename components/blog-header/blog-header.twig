@@ -1,0 +1,14 @@
+<div class="eb-blog-header{{ hero_image.src ? ' eb-blog-header--hero' : '' }}">
+  {% if hero_image.src %}
+    <div class="eb-blog-header__hero">
+      {% include 'canvas:image' with hero_image|merge({
+        class: 'eb-blog-header__hero-image',
+        loading: 'eager',
+      }|filter((value) => value is not null)) only %}
+    </div>
+  {% endif %}
+  <div class="eb-blog-header__meta">
+    <span class="eb-blog-header__date">{{ date|date('l, F j, Y') }}</span>
+    <h1 class="eb-blog-header__title">{{ title }}</h1>
+  </div>
+</div>
