@@ -1,0 +1,42 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: 'Image + HTML'
+description: 'An image paired with free-form HTML content, with the image placed on the left, right, top, or bottom.'
+props:
+  type: object
+  properties:
+    image:
+      $ref: json-schema-definitions://canvas.module/image
+      type: object
+      title: Image
+      description: 'Optional image to pair with the HTML content.'
+      examples:
+        - src: 'https://placehold.co/600x400'
+          alt: ''
+          width: 600
+          height: 400
+    html:
+      type: string
+      title: 'HTML content'
+      description: 'Free-form HTML.'
+      contentMediaType: text/html
+      x-formatting-context: block
+      x-eb-raw-html: true
+      examples:
+        - '<p>HTML content.</p>'
+    image_position:
+      type: string
+      title: 'Image position'
+      description: 'Where to place the image relative to the HTML content. Left and right split the space evenly.'
+      enum:
+        - left
+        - right
+        - top
+        - bottom
+      meta:enum:
+        left: Left
+        right: Right
+        top: Top
+        bottom: Bottom
+      default: left
+      examples:
+        - left

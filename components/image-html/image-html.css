@@ -1,0 +1,56 @@
+.eb-image-html {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.eb-image-html--left {
+  flex-direction: row;
+}
+
+.eb-image-html--right {
+  flex-direction: row-reverse;
+}
+
+.eb-image-html--top {
+  flex-direction: column;
+}
+
+.eb-image-html--bottom {
+  flex-direction: column-reverse;
+}
+
+/* Left/right: image and content split the space evenly. */
+.eb-image-html--left > *,
+.eb-image-html--right > * {
+  flex: 1 1 50%;
+  min-width: 0;
+}
+
+/* Stack to a single column on narrow screens instead of cramming the 50/50
+ * split; top/bottom are already a single column. */
+@media (max-width: 40rem) {
+  .eb-image-html--left,
+  .eb-image-html--right {
+    flex-direction: column;
+  }
+
+  .eb-image-html--left > *,
+  .eb-image-html--right > * {
+    flex: 1 1 auto;
+  }
+}
+
+.eb-image-html__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.eb-image-html__content :first-child {
+  margin-top: 0;
+}
+
+.eb-image-html__content :last-child {
+  margin-bottom: 0;
+}

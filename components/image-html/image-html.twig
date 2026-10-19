@@ -1,0 +1,10 @@
+<div class="eb-image-html eb-image-html--{{ image_position|default('left') }}">
+  {% if image %}
+    {% include 'canvas:image' with image|merge({
+      class: 'eb-image-html__image',
+    }|filter((value) => value is not null)) only %}
+  {% endif %}
+  {% if html %}
+    <div class="eb-image-html__content">{{ html }}</div>
+  {% endif %}
+</div>
