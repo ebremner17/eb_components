@@ -1,0 +1,15 @@
+<div class="eb-links">
+  {% if before_text %}
+    <p class="eb-links__before-text">{{ before_text }}</p>
+  {% endif %}
+  {% if links %}
+    <ul class="eb-links__list">
+      {% block links %}
+        {{ links }}
+      {% endblock %}
+    </ul>
+  {% endif %}
+  {% if after_text %}
+    <p class="eb-links__after-text">{{ after_text }}</p>
+  {% endif %}
+</div>

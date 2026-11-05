@@ -1,0 +1,13 @@
+.eb-links {
+  margin-bottom: 2rem;
+}
+
+.eb-links__before-text,
+.eb-links__after-text {
+  margin: 0 0 1rem;
+}
+
+.eb-links__list {
+  margin: 0 0 1rem;
+  padding-left: 1.5rem;
+}

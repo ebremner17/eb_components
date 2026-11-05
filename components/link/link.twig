@@ -1,0 +1,8 @@
+<li class="eb-link">
+  <a class="eb-link__anchor" href="{{ url }}">{{ title|default(url) }}</a>
+  {% if description %}
+    <ul class="eb-link__description-list">
+      <li class="eb-link__description">{{ description }}</li>
+    </ul>
+  {% endif %}
+</li>

@@ -1,0 +1,22 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Links
+description: 'Optional before/after text wrapped around an unlimited list of Link components.'
+props:
+  type: object
+  properties:
+    before_text:
+      type: string
+      title: 'Before text'
+      description: 'Optional text shown above the list of links.'
+      examples:
+        - 'Related resources:'
+    after_text:
+      type: string
+      title: 'After text'
+      description: 'Optional text shown below the list of links.'
+      examples:
+        - 'Contact us if you have questions.'
+slots:
+  links:
+    title: Links
+    description: 'Add one or more Link components here.'
