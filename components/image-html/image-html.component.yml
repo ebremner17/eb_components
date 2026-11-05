@@ -4,6 +4,27 @@ description: 'An image paired with free-form HTML content, with the image placed
 props:
   type: object
   properties:
+    title:
+      type: string
+      title: Title
+      description: 'Optional title shown above the image and HTML content. Leave blank to hide it.'
+    heading_level:
+      type: string
+      title: 'Heading level'
+      description: 'The HTML heading tag used for the title.'
+      enum:
+        - h2
+        - h3
+        - h4
+        - h5
+      meta:enum:
+        h2: 'H2'
+        h3: 'H3'
+        h4: 'H4'
+        h5: 'H5'
+      default: h2
+      examples:
+        - h2
     image:
       $ref: json-schema-definitions://canvas.module/image
       type: object

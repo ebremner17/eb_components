@@ -1,28 +1,35 @@
 .eb-image-html {
-  display: flex;
-  gap: 1.5rem;
   margin-bottom: 2rem;
 }
 
-.eb-image-html--left {
+.eb-image-html__title {
+  margin: 0 0 1rem;
+}
+
+.eb-image-html__row {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.eb-image-html__row--left {
   flex-direction: row;
 }
 
-.eb-image-html--right {
+.eb-image-html__row--right {
   flex-direction: row-reverse;
 }
 
-.eb-image-html--top {
+.eb-image-html__row--top {
   flex-direction: column;
 }
 
-.eb-image-html--bottom {
+.eb-image-html__row--bottom {
   flex-direction: column-reverse;
 }
 
 /* Left/right: image and content split the space evenly. */
-.eb-image-html--left > *,
-.eb-image-html--right > * {
+.eb-image-html__row--left > *,
+.eb-image-html__row--right > * {
   flex: 1 1 50%;
   min-width: 0;
 }
@@ -30,13 +37,13 @@
 /* Stack to a single column on narrow screens instead of cramming the 50/50
  * split; top/bottom are already a single column. */
 @media (max-width: 40rem) {
-  .eb-image-html--left,
-  .eb-image-html--right {
+  .eb-image-html__row--left,
+  .eb-image-html__row--right {
     flex-direction: column;
   }
 
-  .eb-image-html--left > *,
-  .eb-image-html--right > * {
+  .eb-image-html__row--left > *,
+  .eb-image-html__row--right > * {
     flex: 1 1 auto;
   }
 }
