@@ -42,8 +42,25 @@ props:
       contentMediaType: text/html
       x-formatting-context: block
       x-eb-raw-html: true
+    caption:
+      type: string
+      title: Caption
+      description: 'Optional caption shown below the image, with a black background and white text. Leave blank to hide it.'
+    caption_alignment:
+      type: string
+      title: 'Caption alignment'
+      description: 'How the caption text is aligned.'
+      enum:
+        - left
+        - right
+        - center
+      meta:enum:
+        left: Left
+        right: Right
+        center: Center
+      default: left
       examples:
-        - '<p>HTML content.</p>'
+        - left
     image_position:
       type: string
       title: 'Image position'

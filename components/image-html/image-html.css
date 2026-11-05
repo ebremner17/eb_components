@@ -54,6 +54,25 @@
   height: auto;
 }
 
+.eb-image-html__caption {
+  margin: 0;
+  padding: 0.5rem 1rem;
+  background-color: #000;
+  color: #fff;
+}
+
+.eb-image-html__caption--left {
+  text-align: left;
+}
+
+.eb-image-html__caption--right {
+  text-align: right;
+}
+
+.eb-image-html__caption--center {
+  text-align: center;
+}
+
 .eb-image-html__content :first-child {
   margin-top: 0;
 }
