@@ -35,6 +35,23 @@ props:
           alt: ''
           width: 600
           height: 400
+    image_position:
+      type: string
+      title: 'Image position'
+      description: 'Where to place the image relative to the HTML content. Left and right split the space evenly.'
+      enum:
+        - left
+        - right
+        - top
+        - bottom
+      meta:enum:
+        left: Left
+        right: Right
+        top: Top
+        bottom: Bottom
+      default: left
+      examples:
+        - left
     html:
       type: string
       title: 'HTML content'
@@ -58,23 +75,6 @@ props:
         left: Left
         right: Right
         center: Center
-      default: left
-      examples:
-        - left
-    image_position:
-      type: string
-      title: 'Image position'
-      description: 'Where to place the image relative to the HTML content. Left and right split the space evenly.'
-      enum:
-        - left
-        - right
-        - top
-        - bottom
-      meta:enum:
-        left: Left
-        right: Right
-        top: Top
-        bottom: Bottom
       default: left
       examples:
         - left
