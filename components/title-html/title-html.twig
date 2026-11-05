@@ -1,6 +1,6 @@
 <div class="eb-title-html">
   {% if title %}
-    {% set tag = heading_level|default('h2') %}
+    {% set tag = heading_level|default('h3') %}
     <{{ tag }} class="eb-title-html__title">{{ title }}</{{ tag }}>
   {% endif %}
   {% if html %}

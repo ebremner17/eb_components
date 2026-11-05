@@ -1,6 +1,6 @@
 <div class="eb-image-html">
   {% if title %}
-    {% set tag = heading_level|default('h2') %}
+    {% set tag = heading_level|default('h3') %}
     <{{ tag }} class="eb-image-html__title">{{ title }}</{{ tag }}>
   {% endif %}
   <div class="eb-image-html__row eb-image-html__row--{{ image_position|default('left') }}">
