@@ -2,6 +2,10 @@
   margin-bottom: 2rem;
 }
 
+.eb-links__section-title {
+  margin: 0 0 1rem;
+}
+
 .eb-links__before-text,
 .eb-links__after-text {
   margin: 0 0 1rem;

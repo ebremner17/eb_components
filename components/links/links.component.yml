@@ -4,6 +4,27 @@ description: 'Optional before/after text wrapped around an unlimited list of Lin
 props:
   type: object
   properties:
+    section_title:
+      type: string
+      title: 'Section title'
+      description: 'Optional title shown above the list of links. Leave blank to hide it.'
+    heading_level:
+      type: string
+      title: 'Heading level'
+      description: 'The HTML heading tag used for the section title.'
+      enum:
+        - h2
+        - h3
+        - h4
+        - h5
+      meta:enum:
+        h2: 'H2'
+        h3: 'H3'
+        h4: 'H4'
+        h5: 'H5'
+      default: h2
+      examples:
+        - h2
     before_text:
       type: string
       title: 'Before text'

@@ -1,4 +1,8 @@
 <div class="eb-links">
+  {% if section_title %}
+    {% set tag = heading_level|default('h2') %}
+    <{{ tag }} class="eb-links__section-title">{{ section_title }}</{{ tag }}>
+  {% endif %}
   {% if before_text %}
     <p class="eb-links__before-text">{{ before_text }}</p>
   {% endif %}
